@@ -119,6 +119,8 @@ class LoggerSender:
         else:
             cor_status = "#5cb85c"
             texto_status = "Sucesso Total"
+            #Envio o email de sucesso apenas para mim
+            self.to_list = ['felipesantos7938@gmail.com']
 
         dynamic_subject = f"[{texto_status}] {self.subject} - Erros: {erros} | Warnings: {warnings}"
         
