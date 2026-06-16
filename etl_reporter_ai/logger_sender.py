@@ -9,6 +9,7 @@ import google.generativeai as genai
 class LoggerSender:
     def __init__(
         self,
+        pipeline_name:str,
         log_file: str,
         to_list: list,
         subject: str,
@@ -18,6 +19,7 @@ class LoggerSender:
         smtp_server: str = "smtp.gmail.com",
         smtp_port: int = 465
     ):
+        self.pipeline = pipeline_name
         self.log_file = log_file
         self.to_list = to_list 
         self.subject = subject
@@ -55,7 +57,7 @@ class LoggerSender:
             erros_para_analisar = "\n".join(linhas_de_erro[-15:])
             
             prompt = f"""
-            Você é um Engenheiro de Dados Sênior. Analise os seguintes logs de erro de um processo de ETL:
+            Você é um Engenheiro de Dados Sênior. Analise os seguintes logs de erro de um processo de ETL com o nome de {self.pipeline}:
             {erros_para_analisar}
             
             Por favor, forneça:
@@ -141,7 +143,7 @@ class LoggerSender:
             
             <div style="background-color: {cor_status}; color: white; padding: 20px; text-align: center;">
                 <h2 style="margin: 0; font-size: 22px;">📊 Relatório de Execução do ETL</h2>
-                <p style="margin: 5px 0 0 0; font-size: 14px;">Pipeline: ETL Checklist Fácil</p>
+                <p style="margin: 5px 0 0 0; font-size: 14px;">Pipeline: {self.pipeline} </p>
             </div>
             
             <div style="padding: 30px;">
