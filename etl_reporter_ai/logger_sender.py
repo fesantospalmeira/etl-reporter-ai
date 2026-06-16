@@ -64,6 +64,7 @@ class LoggerSender:
             1. Um resumo curto e direto de qual foi o problema principal.
             2. Uma sugestão prática de como corrigir.
             Seja breve, no máximo 2 parágrafos.
+            3.Não dê nenhuma identificação sobre você, como por exemplo dizer: "Como Engenheiro de Dados Sênior.."
             """
             
             try:
