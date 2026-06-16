@@ -55,7 +55,7 @@ class LoggerSender:
             erros_para_analisar = "\n".join(linhas_de_erro[-15:])
             
             prompt = f"""
-            Você é um Engenheiro de Dados Sênior. Analise os seguintes logs de erro de um processo de ETL (Checklist Fácil):
+            Você é um Engenheiro de Dados Sênior. Analise os seguintes logs de erro de um processo de ETL:
             {erros_para_analisar}
             
             Por favor, forneça:
