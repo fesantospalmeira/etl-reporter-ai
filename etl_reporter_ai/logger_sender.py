@@ -33,7 +33,7 @@ class LoggerSender:
 
         if self.gemini_api_key:
             genai.configure(api_key=self.gemini_api_key)
-            self.ai_model = genai.GenerativeModel('gemini-1.5-flash')
+            self.ai_model = genai.GenerativeModel('gemini-flash-latest')
         else:
             self.ai_model = None
             logger.warning("Variável GEMINI_API_KEY não encontrada. A análise de IA será desativada.")
